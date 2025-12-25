@@ -389,12 +389,34 @@
       transform: translateY(-12px) rotate(0deg) scale(1.02);
       box-shadow: 0 20px 40px rgba(10, 12, 24, 0.2);
     }
-
     .footer-note {
-      margin: 36px 0 10px;
+      margin-top: 60px;
+      padding: 26px 28px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(15, 15, 25, 0.08);
+      box-shadow: 0 14px 28px rgba(8, 9, 16, 0.08);
       text-align: center;
       color: var(--muted);
       font-size: 0.95rem;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-note .footer-title {
+      font-family: "Fraunces", serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .footer-note a {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .footer-note small {
+      font-size: 0.85rem;
+      color: var(--muted);
     }
 
     .reveal {
@@ -572,9 +594,10 @@
         </a>
       </div>
     </section>
-
     <footer class="footer-note">
-      Nuestro equipo en Mintora está trabajando en más productos y secciones para tu beneficio.
+      <div class="footer-title">Mintora Soporte</div>
+      <div>Para cualquier problema, contactese a <a href="mailto:contactomintora@gmail.com">contactomintora@gmail.com</a>.</div>
+      <small>Seguimos ampliando el catalogo con nuevos recursos y secciones.</small>
     </footer>
   </div>
   <script>
