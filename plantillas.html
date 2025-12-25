@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mintora | Plantillas</title>
+  <link rel="icon" type="image/png" href="img/mentorialogo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0b0b10;
+      --ink-2: #161824;
+      --paper: #f5f1ea;
+      --paper-2: #fffaf2;
+      --accent: #f3a712;
+      --accent-2: #ff5c8a;
+      --accent-3: #28c76f;
+      --muted: #5f6372;
+      --card: #ffffff;
+      --shadow: 0 18px 40px rgba(8, 9, 16, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 600px at 10% 0%, #ffe9bf 0%, transparent 60%),
+        radial-gradient(1000px 500px at 90% 20%, #ffd5e3 0%, transparent 55%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      opacity: 0.2;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      z-index: 0;
+      animation: grainShift 8s steps(6) infinite;
+    }
+
+    @keyframes grainShift {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-2%, 2%); }
+      50% { transform: translate(1%, -1%); }
+      75% { transform: translate(2%, 1%); }
+      100% { transform: translate(0, 0); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 40px 0 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 4px;
+      box-shadow: 0 10px 20px rgba(15, 16, 24, 0.18);
+    }
+
+    .logo span {
+      font-family: "Fraunces", serif;
+      font-size: 1.4rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 2px solid var(--ink);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px rgba(8, 9, 16, 0.18);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .page-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 10px 0 30px;
+    }
+
+    .page-title h1 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0;
+    }
+
+    .page-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid rgba(15, 15, 25, 0.08);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card {
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 44px rgba(8, 9, 16, 0.16);
+      border-color: rgba(15, 15, 25, 0.2);
+    }
+
+    .product-card::before {
+      content: "Ver detalles";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(15, 16, 24, 0.9);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 2;
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .product-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(180px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(255, 92, 138, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .product-card:hover::after {
+      opacity: 1;
+    }
+
+    .coming-soon {
+      display: none;
+    }
+
+    .product-details {
+      display: none;
+    }
+
+    .detail-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .detail-images img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .buy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: none;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .buy-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(8, 9, 16, 0.2);
+    }
+
+    .buy-btn.hidden {
+      display: none;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 14, 22, 0.45);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 999;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      width: min(720px, 92vw);
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 30px 60px rgba(8, 9, 16, 0.25);
+      display: grid;
+      gap: 16px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(15, 16, 24, 0.08);
+      border: none;
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .modal-price {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+
+    .modal-body {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .detail-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      overflow: visible;
+    }
+
+    .detail-images img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transform-origin: center;
+      position: relative;
+      z-index: 0;
+    }
+
+    .detail-images img:hover {
+      transform: scale(2);
+      box-shadow: 0 18px 30px rgba(8, 9, 16, 0.22);
+      z-index: 2;
+    }
+
+    .product-media {
+      height: 160px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .notion-zoom {
+      transform: scale(1);
+      transform-origin: center;
+    }
+
+    .product-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price {
+      background: rgba(40, 199, 111, 0.18);
+      color: var(--ink-2);
+      padding: 6px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+      min-width: 92px;
+      text-align: center;
+    }
+
+    .buy {
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .page-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img class="logo-mark" src="img/mentorialogo.png" alt="Mintora logo" />
+        <span>Mintora</span>
+      </div>
+      <a class="btn" href="index.html">Volver al inicio</a>
+    </header>
+
+    <section class="page-title">
+      <div>
+        <h1>Plantillas listas para usar</h1>
+        <p>Selecciona la que necesitas y compra con entrega inmediata.</p>
+      </div>
+    </section>
+
+    <section class="products">
+      <div>
+        <article class="product-card" data-product="notion" data-buy-url="https://buy.stripe.com/test_3cI4gBa0N28Ebi85Scg3600">
+          <div class="product-media">
+            <img class="notion-zoom" src="img/notion4.png" alt="Plantilla Notion" />
+          </div>
+          <h3>Pack Notion Productividad Total</h3>
+          <p>Dashboard principal, tracker de habitos, metas trimestrales, to-do diario, calendario de estudio y pagina "reset semanal".</p>
+          <div class="product-meta">
+            <span class="price">3990 CLP</span>
+            <span class="buy">Compra rapida</span>
+          </div>
+        </article>
+        <div class="product-details" data-details="notion">
+          <strong>Incluye todo el pack completo y listo para usar.</strong>
+          <p>
+            Tendras listo para usar un listado de tareas que podras usar por dias, escribir tus
+            habitos diarios para que no tengas que volver a escribirlos todos los dias, escribir tus
+            metas y objetivos. Podras tener un listado tipo checklist del enfoque semanal y cada una
+            de estas tiene propiedades para establecer si el evento esta en estado pendiente, en
+            progreso o completado. Podras establecer fechas para futuros eventos, acceder desde tu
+            movil conectando la cuenta y recibir un recordatorio por medio de notificaciones para que
+            jamas se te olvide cumplir. Tambien podras escribir comentarios en cada evento, en caso de
+            que dos eventos sean el mismo pero con distintas acciones, por ejemplo toca gimnasio, pero
+            es dia de pierna o de brazos. Todo esto de inmediato para ti. <strong>Deberas tener antes una
+            cuenta en la app/web de Notion.</strong>
+          </p>
+          <div class="detail-images">
+            <img src="img/notion1.png" alt="Detalle Notion 1" />
+            <img src="img/notion2.png" alt="Detalle Notion 2" />
+            <img src="img/notion3.png" alt="Detalle Notion 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="coming-soon">
+        <article class="product-card" data-product="cv">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Plantillas CV" />
+          </div>
+          <h3>Plantillas CV Premium</h3>
+          <p>Incluye 3-5 disenos, PDF + Word, versiones: estudiante, primer trabajo y profesional. <strong>Aceptado por sistemas de RRHH ATS.</strong></p>
+          <div class="product-meta">
+            <span class="price">3990 CLP</span>
+            <span class="buy">Entrega inmediata</span>
+          </div>
+        </article>
+        <div class="product-details" data-details="cv">
+          <strong>Listo para postular sin perder tiempo.</strong>
+          <div class="detail-images">
+            <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=400&q=80" alt="Detalle CV 1" />
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80" alt="Detalle CV 2" />
+            <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=400&q=80" alt="Detalle CV 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="coming-soon">
+        <article class="product-card" data-product="landing">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Landing Page" />
+          </div>
+          <h3>Landing Page Template</h3>
+          <p>HTML + CSS. Secciones: Hero, Beneficios, CTA, Diseno limpio.</p>
+          <div class="product-meta">
+            <span class="price">3990 CLP</span>
+            <span class="buy">Listo hoy</span>
+          </div>
+        </article>
+        <div class="product-details" data-details="landing">
+          <strong>Maquetado listo para lanzar y vender.</strong>
+          <div class="detail-images">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Detalle Landing 1" />
+            <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=400&q=80" alt="Detalle Landing 2" />
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Detalle Landing 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="coming-soon">
+        <article class="product-card" data-product="portfolio">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=800&q=80" alt="Portfolio" />
+          </div>
+          <h3>Portfolio Minimal</h3>
+          <p>Plantilla elegante con bloques para proyectos, bio y contacto.</p>
+          <div class="product-meta">
+            <span class="price">3990 CLP</span>
+            <span class="buy">Descarga instantanea</span>
+          </div>
+        </article>
+        <div class="product-details" data-details="portfolio">
+          <strong>Muestra tu trabajo con un look profesional.</strong>
+          <div class="detail-images">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Detalle Portfolio 1" />
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Detalle Portfolio 2" />
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" alt="Detalle Portfolio 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="coming-soon">
+        <article class="product-card" data-product="finanzas">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard financiero" />
+          </div>
+          <h3>Dashboard Financiero Personal</h3>
+          <p>Incluye ingresos/gastos, ahorro mensual, metas y graficos automaticos.</p>
+          <div class="product-meta">
+            <span class="price">3990 CLP</span>
+            <span class="buy">Acceso inmediato</span>
+          </div>
+        </article>
+        <div class="product-details" data-details="finanzas">
+          <strong>Controla tu dinero con graficos automaticos.</strong>
+          <div class="detail-images">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Detalle Finanzas 1" />
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80" alt="Detalle Finanzas 2" />
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=400&q=80" alt="Detalle Finanzas 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="coming-soon">
+        <article class="product-card" data-product="estudio">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Planner de estudio" />
+          </div>
+          <h3>Planner de Estudio (PAES / universidad)</h3>
+          <p>Incluye calendario semanal, control de materias, seguimiento de horas, evaluaciones y metas por pruebas.</p>
+          <div class="product-meta">
+            <span class="price">3990 CLP</span>
+            <span class="buy">Compra sin esperas</span>
+          </div>
+        </article>
+        <div class="product-details" data-details="estudio">
+          <strong>Planifica semanas completas sin perder el foco.</strong>
+          <div class="detail-images">
+            <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=400&q=80" alt="Detalle Estudio 1" />
+            <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=400&q=80" alt="Detalle Estudio 2" />
+            <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=400&q=80" alt="Detalle Estudio 3" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="Cerrar">✕</button>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-price" id="modal-price"></div>
+      <div class="modal-body" id="modal-body"></div>
+      <a class="buy-btn" id="modal-buy" href="#">Comprar ahora</a>
+    </div>
+  </div>
+  <script>
+    const glowCards = document.querySelectorAll(".product-card");
+    glowCards.forEach((card) => {
+      let currentX = 0;
+      let currentY = 0;
+      let targetX = 0;
+      let targetY = 0;
+      let animating = false;
+
+      function animateGlow() {
+        if (!animating) return;
+        currentX += (targetX - currentX) * 0.2;
+        currentY += (targetY - currentY) * 0.2;
+        card.style.setProperty("--glow-x", `${currentX}px`);
+        card.style.setProperty("--glow-y", `${currentY}px`);
+        if (Math.abs(targetX - currentX) < 0.5 && Math.abs(targetY - currentY) < 0.5) {
+          animating = false;
+          return;
+        }
+        requestAnimationFrame(animateGlow);
+      }
+
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        targetX = event.clientX - rect.left;
+        targetY = event.clientY - rect.top;
+        if (!animating) {
+          animating = true;
+          animateGlow();
+        }
+      });
+
+      card.addEventListener("mouseleave", () => {
+        animating = false;
+      });
+    });
+
+    const modal = document.getElementById("product-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalPrice = document.getElementById("modal-price");
+    const modalBody = document.getElementById("modal-body");
+    const modalClose = modal.querySelector(".modal-close");
+    const modalBuy = document.getElementById("modal-buy");
+
+    function closeModal() {
+      modal.classList.remove("show");
+      modalBody.innerHTML = "";
+    }
+
+    document.querySelectorAll(".product-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const key = card.dataset.product;
+        const details = document.querySelector(`[data-details="${key}"]`);
+        const title = card.querySelector("h3")?.textContent || "";
+        const price = card.querySelector(".price")?.textContent || "";
+        const buyUrl = card.dataset.buyUrl;
+        if (!details) return;
+
+        modalTitle.textContent = title;
+        modalPrice.textContent = price;
+        modalBody.innerHTML = details.innerHTML;
+        if (buyUrl) {
+          modalBuy.href = buyUrl;
+          modalBuy.classList.remove("hidden");
+        } else {
+          modalBuy.href = "#";
+          modalBuy.classList.add("hidden");
+        }
+        modal.classList.add("show");
+      });
+    });
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
