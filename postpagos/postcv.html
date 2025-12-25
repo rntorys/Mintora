@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mintora | Descarga CV</title>
+  <link rel="icon" type="image/png" href="../img/mentorialogo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0b0b10;
+      --ink-2: #161824;
+      --paper: #f5f1ea;
+      --paper-2: #fffaf2;
+      --accent: #f3a712;
+      --accent-2: #ff5c8a;
+      --muted: #5f6372;
+      --card: #ffffff;
+      --shadow: 0 18px 40px rgba(8, 9, 16, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 600px at 10% 0%, #ffe9bf 0%, transparent 60%),
+        radial-gradient(1000px 500px at 90% 20%, #ffd5e3 0%, transparent 55%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 10px 20px rgba(15, 16, 24, 0.18);
+    }
+
+    .logo span {
+      font-family: "Fraunces", serif;
+      font-size: 1.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 2px solid var(--ink);
+      background: transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 24px rgba(8, 9, 16, 0.16);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      align-items: center;
+      background: var(--card);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 15, 25, 0.08);
+    }
+
+    .hero h1 {
+      font-family: "Fraunces", serif;
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 16px 32px rgba(8, 9, 16, 0.18);
+    }
+
+    .downloads {
+      margin-top: 32px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .downloads-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .downloads-header h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .download-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .download-item {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid rgba(15, 15, 25, 0.08);
+      box-shadow: 0 10px 24px rgba(8, 9, 16, 0.08);
+    }
+
+    .download-item span {
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+
+    .download-link {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .notes {
+      margin-top: 24px;
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 18px;
+      padding: 18px 20px;
+      border: 1px solid rgba(15, 15, 25, 0.08);
+      box-shadow: 0 12px 24px rgba(8, 9, 16, 0.08);
+      color: var(--muted);
+      line-height: 1.6;
+      display: grid;
+      gap: 10px;
+    }
+
+    .notes strong {
+      color: var(--ink-2);
+    }
+
+    .notes a {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .download-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="../img/mentorialogo.png" alt="Mintora logo" />
+        <span>Mintora</span>
+      </div>
+      <a class="btn" href="../index.html">Volver a Mintora</a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>&iexcl;Gracias por tu compra!</h1>
+        <p>
+          Tus archivos est&aacute;n listos para descargar. Guarda esta p&aacute;gina en favoritos para
+          volver cuando quieras.
+        </p>
+      </div>
+      <img src="../img/Graciasporsucompra.png" alt="Gracias por su compra" />
+    </section>
+
+    <section class="downloads">
+      <div class="downloads-header">
+        <h2>Descargas incluidas</h2>
+        <a class="btn" href="cvs/CV_Mintora_Pack.zip" download>Descargar todo (ZIP)</a>
+      </div>
+      <div class="download-list">
+        <div class="download-item">
+          <span>CV Estudiante (Word)</span>
+          <a class="download-link" href="cvs/CV_Estudiante_01_Mintora.docx" download>Descargar</a>
+        </div>
+        <div class="download-item">
+          <span>CV Estudiante (PDF)</span>
+          <a class="download-link" href="cvs/CV_Estudiante_01_Mintora_v2.pdf" download>Descargar</a>
+        </div>
+        <div class="download-item">
+          <span>CV Primer Trabajo (Word)</span>
+          <a class="download-link" href="cvs/CV_Primer_Trabajo_01_Mintora.docx" download>Descargar</a>
+        </div>
+        <div class="download-item">
+          <span>CV Primer Trabajo (PDF)</span>
+          <a class="download-link" href="cvs/CV_Primer_Trabajo_01_Mintora.pdf" download>Descargar</a>
+        </div>
+        <div class="download-item">
+          <span>CV Profesional (Word)</span>
+          <a class="download-link" href="cvs/CV_Profesional_01_Mintora.docx" download>Descargar</a>
+        </div>
+        <div class="download-item">
+          <span>CV Profesional (PDF)</span>
+          <a class="download-link" href="cvs/CV_Profesional_01_Mintora.pdf" download>Descargar</a>
+        </div>
+        <div class="download-item">
+          <span>Gu&iacute;a CV Premium</span>
+          <a class="download-link" href="cvs/Guia_CV_Premium_Mintora.docx" download>Descargar</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <div>
+        <strong>Tip:</strong> deja esta p&aacute;gina en favoritos para volver cuando quieras y descargar de nuevo.
+      </div>
+      <div>
+        Si tienes alg&uacute;n problema, escribe a
+        <a href="mailto:contactomintora@gmail.com">contactomintora@gmail.com</a>
+        con tu recibo para reentregarte tu pedido.
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
